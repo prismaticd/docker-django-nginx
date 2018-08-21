@@ -1,7 +1,9 @@
 # docker-django-nginx
 
-* Using Latest python 2.7 as base image
-  * tag 3 for python 3.6
+* Using latest python 3 as base image
+  * tag 3 for python 3 latest (same as :latest)
+  * tag 3.6 for python 3.6
+  * tag 3.7 for python 3.7
   * tag pypy for pypy2
 * Latest jessie backport openssl
 * Gettext installed for Django translations
