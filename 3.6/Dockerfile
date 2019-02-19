@@ -2,7 +2,7 @@ FROM python:3.6
 
 MAINTAINER Prismatic Digital <>
 
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ABF5BD827BD9BF62 > /dev/null \
+RUN apt-key adv --no-tty --keyserver keyserver.ubuntu.com --recv-keys ABF5BD827BD9BF62 > /dev/null \
 	&& echo "deb http://nginx.org/packages/debian/ stretch nginx" >> /etc/apt/sources.list \
 	&& echo "deb http://ftp.debian.org/debian stretch-backports main " >> /etc/apt/sources.list.d/backports.list \
 	&& apt-get update \
