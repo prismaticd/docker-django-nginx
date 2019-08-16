@@ -11,6 +11,7 @@ RUN apt-key adv --no-tty --keyserver keyserver.ubuntu.com --recv-keys ABF5BD827B
         && apt-get install -y libev-dev \
         && apt-get install -y mysql-client \
         && apt-get install -y python3-dev \
+        && apt-get install -y apt-transport-https \
 	&& rm -rf /var/lib/apt/lists/*
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
