@@ -4,7 +4,7 @@
   * tag 3 for python 3 latest (same as :latest)
   * tag 3.6 for python 3.6
   * tag 3.7 for python 3.7
-  * tag pypy for pypy2
+  * tag pypy3 for pypy3
 * Latest jessie backport openssl
 * Gettext installed for Django translations
 * Latest stable nginx with port 80 and 443 exposed
