@@ -1,13 +1,71 @@
 name: Build and Publish Docker
 on: [push]
 jobs:
-  build:
+  # Ideally these would be de-duplicated with yaml anchors, but that's not supported yet:
+  # https://github.community/t5/GitHub-Actions/Support-for-YAML-anchors/td-p/30336
+  build_latest:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Publish to Docker Repository
+    - name: Publish to Docker Repository (latest)
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: prismaticd/django-nginx:latest-github
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+  build_py3:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Publish to Docker Repository (py3)
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: prismaticd/django-nginx:3-github
+        dockerfile: 3/Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+  build_py37:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Publish to Docker Repository (py37)
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: prismaticd/django-nginx:3.7-github
+        dockerfile: 3.7/Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+  build_py37_stretch:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Publish to Docker Repository (py37-stretch)
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: prismaticd/django-nginx:3.7-stretch-github
+        dockerfile: 3.7-stretch/Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+  build_py36:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Publish to Docker Repository (py36)
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: prismaticd/django-nginx:3.6-github
+        dockerfile: 3.6/Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+  build_pypy3:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Publish to Docker Repository (pypy3)
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: prismaticd/django-nginx:pypy3-github
+        dockerfile: pypy3/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
