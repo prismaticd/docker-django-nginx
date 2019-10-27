@@ -1,9 +1,9 @@
 name: Build and Publish Docker
 on: [push]
-  schedule:
-    # UTC schedule
-    #        M H DOM MONTH DAY
-    - cron: "0 0 *   *     SUN"
+# UTC schedule
+#        M H DOM MONTH DAY
+#  schedule:
+#    - cron: "0 0 *   *     SUN"
 jobs:
   # Ideally these would be de-duplicated with yaml anchors, but that's not supported yet:
   # https://github.community/t5/GitHub-Actions/Support-for-YAML-anchors/td-p/30336
