@@ -4,9 +4,9 @@ on:
     branches:
       # Only commits to master trigger build
       - master
-    paths:
+    paths-ignore:
       # Don't trigger build on README.md change
-      - '!README.md'
+      - 'README.md'
   schedule:
     # UTC schedule
     #        M H DOM MONTH DAY
