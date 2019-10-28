@@ -1,6 +1,12 @@
 name: Build and Publish Docker
 on:
-  push: ~
+  push:
+    branches:
+      # Only commits to master trigger build
+      - master
+    paths:
+      # Don't trigger build on README.md change
+      - '!README.md'
   schedule:
     # UTC schedule
     #        M H DOM MONTH DAY
@@ -15,7 +21,7 @@ jobs:
     - name: Publish to Docker Repository (latest)
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: prismaticd/django-nginx:latest-github
+        name: prismaticd/django-nginx:latest
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -26,7 +32,7 @@ jobs:
     - name: Publish to Docker Repository (py3)
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: prismaticd/django-nginx:3-github
+        name: prismaticd/django-nginx:3
         dockerfile: 3/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -37,7 +43,7 @@ jobs:
     - name: Publish to Docker Repository (py37)
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: prismaticd/django-nginx:3.7-github
+        name: prismaticd/django-nginx:3.7
         dockerfile: 3.7/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -48,7 +54,7 @@ jobs:
     - name: Publish to Docker Repository (py37-stretch)
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: prismaticd/django-nginx:3.7-stretch-github
+        name: prismaticd/django-nginx:3.7-stretch
         dockerfile: 3.7-stretch/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -59,7 +65,7 @@ jobs:
     - name: Publish to Docker Repository (py36)
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: prismaticd/django-nginx:3.6-github
+        name: prismaticd/django-nginx:3.6
         dockerfile: 3.6/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -70,7 +76,7 @@ jobs:
     - name: Publish to Docker Repository (pypy3)
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: prismaticd/django-nginx:pypy3-github
+        name: prismaticd/django-nginx:pypy3
         dockerfile: pypy3/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
