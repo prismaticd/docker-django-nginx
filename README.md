@@ -1,5 +1,7 @@
 # docker-django-nginx
 
+https://hub.docker.com/r/prismaticd/django-nginx/
+
 * Using latest python 3 as base image
   * tag 3 for python 3 latest (same as :latest)
   * tag 3.6 for python 3.6
